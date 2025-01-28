@@ -21,3 +21,19 @@ def txt_to_excel(input_file, output_file, delimiter):
             print(f"Error occurred: {e}")
 
 
+def excel_to_txt(input_file, output_file, delimiter):
+    try:
+        data = pd.read_excel(input_file)
+
+        # def clean_row(row):
+        #     valid_values = row.notna()
+        #     return row[valid_values]
+        #
+        # cleaned_data = data.apply(clean_row, axis=1)
+
+        data.to_csv(output_file, sep=delimiter, index=False) # na_rep='')
+
+    except Exception as e:
+            print(f"Error occurred: {e}")
+
+
